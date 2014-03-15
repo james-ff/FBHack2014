@@ -18,6 +18,13 @@
 
 @implementation KCLNearbyBroadcastsTableViewController
 
+- (NSMutableArray *)peers {
+    if (!_peers) {
+        _peers = [[NSMutableArray alloc] init];
+    }
+    return _peers;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -117,6 +124,7 @@
 - (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
 {
     [self.peers addObject:@{@"id":peerID, @"info":info}];
+    NSLog(peerID.displayName);
     [self.tableView reloadData];
 }
 
