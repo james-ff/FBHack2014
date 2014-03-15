@@ -71,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B5B96818D4ACDA00ADDC70 /* MultipeerConnectivity.framework in Frameworks */,
 				8C629E4618D4912200DCE08E /* CoreGraphics.framework in Frameworks */,
 				8C629E4A18D4912200DCE08E /* CoreData.framework in Frameworks */,
 				8C629E4818D4912200DCE08E /* UIKit.framework in Frameworks */,
@@ -114,6 +115,7 @@
 		8C629E4218D4912200DCE08E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9B5B96718D4ACDA00ADDC70 /* MultipeerConnectivity.framework */,
 				8C629E4318D4912200DCE08E /* Foundation.framework */,
 				8C629E4518D4912200DCE08E /* CoreGraphics.framework */,
 				8C629E4718D4912200DCE08E /* UIKit.framework */,
@@ -126,6 +128,7 @@
 		8C629E4B18D4912200DCE08E /* Matchr */ = {
 			isa = PBXGroup;
 			children = (
+				B9AD088D18D4AA6C0012A36E /* Model */,
 				8C629E5418D4912200DCE08E /* KCLAppDelegate.h */,
 				8C629E5518D4912200DCE08E /* KCLAppDelegate.m */,
 				8C629E8018D4ACC300DCE08E /* Controller */,
@@ -282,6 +285,7 @@
 				8C629E8318D4ACEF00DCE08E /* KCLiBroadcastViewController.m in Sources */,
 				8C629E5918D4912200DCE08E /* Matchr.xcdatamodeld in Sources */,
 				8C629E5618D4912200DCE08E /* KCLAppDelegate.m in Sources */,
+				B9B5B96B18D4BBBA00ADDC70 /* PeerDiscover.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +482,7 @@
 				8C629E7418D4912300DCE08E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C629E7518D4912300DCE08E /* Build configuration list for PBXNativeTarget "MatchrTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +491,7 @@
 				8C629E7718D4912300DCE08E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
