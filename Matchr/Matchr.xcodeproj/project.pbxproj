@@ -29,7 +29,6 @@
 		8C629E8D18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E8C18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m */; };
 		B9AD088C18D4AA660012A36E /* PeerAdvertise.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AD088B18D4AA660012A36E /* PeerAdvertise.m */; };
 		B9B5B96818D4ACDA00ADDC70 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B5B96718D4ACDA00ADDC70 /* MultipeerConnectivity.framework */; };
-		B9B5B96B18D4BBBA00ADDC70 /* PeerDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B5B96A18D4BBBA00ADDC70 /* PeerDiscover.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +72,6 @@
 		B9AD088A18D4AA660012A36E /* PeerAdvertise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerAdvertise.h; path = Model/PeerAdvertise.h; sourceTree = "<group>"; };
 		B9AD088B18D4AA660012A36E /* PeerAdvertise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerAdvertise.m; path = Model/PeerAdvertise.m; sourceTree = "<group>"; };
 		B9B5B96718D4ACDA00ADDC70 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
-		B9B5B96918D4BBBA00ADDC70 /* PeerDiscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerDiscover.h; path = Model/PeerDiscover.h; sourceTree = "<group>"; };
-		B9B5B96A18D4BBBA00ADDC70 /* PeerDiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerDiscover.m; path = Model/PeerDiscover.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +197,6 @@
 			children = (
 				B9AD088A18D4AA660012A36E /* PeerAdvertise.h */,
 				B9AD088B18D4AA660012A36E /* PeerAdvertise.m */,
-				B9B5B96918D4BBBA00ADDC70 /* PeerDiscover.h */,
-				B9B5B96A18D4BBBA00ADDC70 /* PeerDiscover.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -310,7 +305,6 @@
 				8C629E8318D4ACEF00DCE08E /* KCLiBroadcastViewController.m in Sources */,
 				8C629E5918D4912200DCE08E /* Matchr.xcdatamodeld in Sources */,
 				8C629E5618D4912200DCE08E /* KCLAppDelegate.m in Sources */,
-				B9B5B96B18D4BBBA00ADDC70 /* PeerDiscover.m in Sources */,
 				8C629E8D18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
