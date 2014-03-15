@@ -22,6 +22,10 @@
 		8C629E6518D4912300DCE08E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C629E4918D4912200DCE08E /* CoreData.framework */; };
 		8C629E6D18D4912300DCE08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C629E6B18D4912300DCE08E /* InfoPlist.strings */; };
 		8C629E6F18D4912300DCE08E /* MatchrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E6E18D4912300DCE08E /* MatchrTests.m */; };
+		8C629E7918D491CF00DCE08E /* iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C629E7818D491CF00DCE08E /* iPhone_Storyboard.storyboard */; };
+		8C629E8318D4ACEF00DCE08E /* KCLiBroadcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E8218D4ACEF00DCE08E /* KCLiBroadcastViewController.m */; };
+		8C629E8618D4B58000DCE08E /* KCLSkillSetFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E8518D4B58000DCE08E /* KCLSkillSetFormViewController.m */; };
+		8C629E8918D4B60B00DCE08E /* KCLCommonInterestFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E8818D4B60B00DCE08E /* KCLCommonInterestFormViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,13 @@
 		8C629E6A18D4912300DCE08E /* MatchrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchrTests-Info.plist"; sourceTree = "<group>"; };
 		8C629E6C18D4912300DCE08E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8C629E6E18D4912300DCE08E /* MatchrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchrTests.m; sourceTree = "<group>"; };
+		8C629E7818D491CF00DCE08E /* iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		8C629E8118D4ACEF00DCE08E /* KCLiBroadcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCLiBroadcastViewController.h; sourceTree = "<group>"; };
+		8C629E8218D4ACEF00DCE08E /* KCLiBroadcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCLiBroadcastViewController.m; sourceTree = "<group>"; };
+		8C629E8418D4B58000DCE08E /* KCLSkillSetFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCLSkillSetFormViewController.h; sourceTree = "<group>"; };
+		8C629E8518D4B58000DCE08E /* KCLSkillSetFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCLSkillSetFormViewController.m; sourceTree = "<group>"; };
+		8C629E8718D4B60B00DCE08E /* KCLCommonInterestFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCLCommonInterestFormViewController.h; sourceTree = "<group>"; };
+		8C629E8818D4B60B00DCE08E /* KCLCommonInterestFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCLCommonInterestFormViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +128,8 @@
 			children = (
 				8C629E5418D4912200DCE08E /* KCLAppDelegate.h */,
 				8C629E5518D4912200DCE08E /* KCLAppDelegate.m */,
+				8C629E8018D4ACC300DCE08E /* Controller */,
+				8C629E7818D491CF00DCE08E /* iPhone_Storyboard.storyboard */,
 				8C629E5A18D4912200DCE08E /* Images.xcassets */,
 				8C629E5718D4912200DCE08E /* Matchr.xcdatamodeld */,
 				8C629E4C18D4912200DCE08E /* Supporting Files */,
@@ -151,6 +164,19 @@
 				8C629E6B18D4912300DCE08E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C629E8018D4ACC300DCE08E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C629E8118D4ACEF00DCE08E /* KCLiBroadcastViewController.h */,
+				8C629E8218D4ACEF00DCE08E /* KCLiBroadcastViewController.m */,
+				8C629E8418D4B58000DCE08E /* KCLSkillSetFormViewController.h */,
+				8C629E8518D4B58000DCE08E /* KCLSkillSetFormViewController.m */,
+				8C629E8718D4B60B00DCE08E /* KCLCommonInterestFormViewController.h */,
+				8C629E8818D4B60B00DCE08E /* KCLCommonInterestFormViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +257,7 @@
 			files = (
 				8C629E5018D4912200DCE08E /* InfoPlist.strings in Resources */,
 				8C629E5B18D4912200DCE08E /* Images.xcassets in Resources */,
+				8C629E7918D491CF00DCE08E /* iPhone_Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C629E8918D4B60B00DCE08E /* KCLCommonInterestFormViewController.m in Sources */,
 				8C629E5218D4912200DCE08E /* main.m in Sources */,
+				8C629E8618D4B58000DCE08E /* KCLSkillSetFormViewController.m in Sources */,
+				8C629E8318D4ACEF00DCE08E /* KCLiBroadcastViewController.m in Sources */,
 				8C629E5918D4912200DCE08E /* Matchr.xcdatamodeld in Sources */,
 				8C629E5618D4912200DCE08E /* KCLAppDelegate.m in Sources */,
 			);
