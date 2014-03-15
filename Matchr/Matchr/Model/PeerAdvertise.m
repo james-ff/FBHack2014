@@ -11,8 +11,6 @@
 
 @interface PeerAdvertise()
 
-@property (retain, nonatomic) MCPeerID *localPeerID;
-@property (retain, nonatomic) MCSession *session;
 @property (retain, nonatomic) MCNearbyServiceAdvertiser *serviceAdvertiser;
 
 @end
@@ -25,7 +23,7 @@
         _serviceAdvertiser =
         [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.localPeerID
                                           discoveryInfo:@{
-                                                          @"Interests" : @"Cricket, Thor",
+                                                          @"Interests" : @"No, Thor",
                                                           @"Skills" : @"Objective-C, Ruby"
                                                           }
                                             serviceType:XXServiceType];
@@ -59,6 +57,11 @@
         [self.serviceAdvertiser startAdvertisingPeer];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [_serviceAdvertiser stopAdvertisingPeer];
 }
 
 #pragma mark - MCNearbyServiceAdvertiserDelegate

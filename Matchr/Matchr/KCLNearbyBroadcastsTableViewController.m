@@ -41,7 +41,6 @@ static NSString * const kInfo = @"info";
     self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
     self.browser.delegate = self;
     [self.browser startBrowsingForPeers];
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -131,14 +130,26 @@ static NSString * const kInfo = @"info";
 
 - (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
 {
-    [self.peers addObject:@{kID:peerID, kInfo:info}];
+    if (![self.peers containsObject:[self PeerDictionaryForPeer:peerID]]) {
+        [self.peers addObject:@{kID:peerID, kInfo:info}];
+    }
     [self.tableView reloadData];
 }
 
 - (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
 {
-    [self.peers removeObject:peerID];
+    [self.peers removeObject:[self PeerDictionaryForPeer:peerID]];
     [self.tableView reloadData];
+}
+
+-(id)PeerDictionaryForPeer:(MCPeerID *)peer
+{
+    for (NSDictionary *iPeer in self.peers) {
+        if ([iPeer[kID] isEqual:peer]) {
+            return iPeer;
+        }
+    }
+    return nil;
 }
 
 - (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
