@@ -11,7 +11,7 @@
 
 @interface PeerAdvertise()
 
-@property (retain, nonatomic) MCNearbyServiceAdvertiser *adertiserAssistant;
+@property (retain, nonatomic) MCNearbyServiceAdvertiser *advertiserAssistant;
 
 @end
 
@@ -19,14 +19,14 @@
 
 - (MCNearbyServiceAdvertiser *)advertiserAssistant
 {
-    if (!_adertiserAssistant) {
-        _adertiserAssistant =
+    if (!_advertiserAssistant) {
+        _advertiserAssistant =
         [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.localPeerID
                                           discoveryInfo:nil
                                             serviceType:XXServiceType];
-        _adertiserAssistant.delegate = self;
+        _advertiserAssistant.delegate = self;
     }
-    return _adertiserAssistant;
+    return _advertiserAssistant;
 }
 
 - (MCSession *)session
@@ -51,7 +51,8 @@
 - (id)init
 {
     if (self = [super init]) {
-        [self.adertiserAssistant startAdvertisingPeer];
+        [self.advertiserAssistant startAdvertisingPeer];
+        NSLog(@"%@", self.advertiserAssistant);
     }
     return self;
 }
