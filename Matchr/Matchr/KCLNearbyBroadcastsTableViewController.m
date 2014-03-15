@@ -128,4 +128,8 @@
     [self.tableView reloadData];
 }
 
+- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
+    
+}
+
 @end
