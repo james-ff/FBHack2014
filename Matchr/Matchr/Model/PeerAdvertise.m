@@ -9,14 +9,9 @@
 #import "PeerAdvertise.h"
 
 
-static NSString * const XXServiceType = @"matchr-interests";
-
-
 @interface PeerAdvertise()
 
 @property (retain, nonatomic) MCNearbyServiceAdvertiser *adertiserAssistant;
-@property (retain, nonatomic) MCSession *session;
-@property (retain, nonatomic) MCPeerID *localPeerID;
 
 @end
 

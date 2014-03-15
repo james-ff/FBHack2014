@@ -7,6 +7,7 @@
 //
 
 #import "KCLBroadcastsViewController.h"
+#import "PeerAdvertise.h"
 
 @interface KCLBroadcastsViewController ()
 
@@ -27,6 +28,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(XXServiceType);
+    PeerAdvertise *advertise = [[PeerAdvertise alloc] init];
+    MCNearbyServiceBrowser *browser = [[MCNearbyServiceBrowser alloc] initWithPeer:advertise.localPeerID serviceType:XXServiceType];
+//browser.delegate = self;
+    MCBrowserViewController *browserViewController =
+    [[MCBrowserViewController alloc] initWithBrowser:browser
+                                             session:advertise.session];
+    browserViewController.delegate = self;
+    [self presentViewController:browserViewController
+                       animated:YES
+                     completion:
+     ^{
+         [browser startBrowsingForPeers];
+     }];
 }
 
 - (void)didReceiveMemoryWarning

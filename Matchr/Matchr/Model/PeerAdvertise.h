@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
+static NSString * const XXServiceType = @"testA";
+
+
 @interface PeerAdvertise : NSObject <MCNearbyServiceAdvertiserDelegate, MCSessionDelegate>
+
+@property (retain, nonatomic) MCPeerID *localPeerID;
+@property (retain, nonatomic) MCSession *session;
 
 @end

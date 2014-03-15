@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Broadcasts View Controller-->
         <scene sceneID="0HA-NI-sut">
             <objects>
-                <viewController id="q0H-L7-3uQ" sceneMemberID="viewController">
+                <viewController id="q0H-L7-3uQ" customClass="KCLBroadcastsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JJP-hg-fJ4"/>
                         <viewControllerLayoutGuide type="bottom" id="Qc7-cW-oOm"/>
@@ -27,7 +27,7 @@
         <scene sceneID="7BN-aP-6Lu">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="lzy-0d-mVb" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="G2U-Ra-Tsp">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>

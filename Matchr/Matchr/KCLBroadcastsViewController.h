@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-@interface KCLBroadcastsViewController : UIViewController
+@interface KCLBroadcastsViewController : UIViewController <MCBrowserViewControllerDelegate>
 
 @end
