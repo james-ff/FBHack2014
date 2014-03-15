@@ -12,6 +12,7 @@
 
 @property (retain, nonatomic) PeerAdvertise *advertise;
 @property (retain, nonatomic) NSMutableArray *peers;
+@property (retain, nonatomic) MCNearbyServiceBrowser *browser;
 
 @end
 
@@ -22,9 +23,9 @@
     [super viewDidLoad];
     NSLog(XXServiceType);
     self.advertise = [[PeerAdvertise alloc] init];
-    MCNearbyServiceBrowser *browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
-    browser.delegate = self;
-    [browser startBrowsingForPeers];
+    self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
+    self.browser.delegate = self;
+    [self.browser startBrowsingForPeers];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
