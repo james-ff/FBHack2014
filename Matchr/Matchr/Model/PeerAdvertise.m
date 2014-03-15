@@ -52,7 +52,6 @@
 {
     if (self = [super init]) {
         [self.advertiserAssistant startAdvertisingPeer];
-        NSLog(@"%@", self.advertiserAssistant);
     }
     return self;
 }

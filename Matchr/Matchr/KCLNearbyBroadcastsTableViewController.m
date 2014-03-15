@@ -10,6 +10,8 @@
 #import "PeerAdvertise.h"
 @interface KCLNearbyBroadcastsTableViewController ()
 
+@property (retain, nonatomic) PeerAdvertise *advertise;
+
 @end
 
 @implementation KCLNearbyBroadcastsTableViewController
@@ -18,12 +20,12 @@
 {
     [super viewDidLoad];
     NSLog(XXServiceType);
-    PeerAdvertise *advertise = [[PeerAdvertise alloc] init];
-    MCNearbyServiceBrowser *browser = [[MCNearbyServiceBrowser alloc] initWithPeer:advertise.localPeerID serviceType:XXServiceType];
+    self.advertise = [[PeerAdvertise alloc] init];
+    MCNearbyServiceBrowser *browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
     //browser.delegate = self;
     MCBrowserViewController *browserViewController =
     [[MCBrowserViewController alloc] initWithBrowser:browser
-                                             session:advertise.session];
+                                             session:self.advertise.session];
     browserViewController.delegate = self;
     [self presentViewController:browserViewController
                        animated:YES
