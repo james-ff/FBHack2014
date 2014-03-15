@@ -11,6 +11,7 @@
 @interface KCLNearbyBroadcastsTableViewController ()
 
 @property (retain, nonatomic) PeerAdvertise *advertise;
+@property (retain, nonatomic) NSMutableArray *peers;
 
 @end
 
@@ -22,17 +23,9 @@
     NSLog(XXServiceType);
     self.advertise = [[PeerAdvertise alloc] init];
     MCNearbyServiceBrowser *browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
-    //browser.delegate = self;
-    MCBrowserViewController *browserViewController =
-    [[MCBrowserViewController alloc] initWithBrowser:browser
-                                             session:self.advertise.session];
-    browserViewController.delegate = self;
-    [self presentViewController:browserViewController
-                       animated:YES
-                     completion:
-     ^{
-         [browser startBrowsingForPeers];
-     }];
+    browser.delegate = self;
+    [browser startBrowsingForPeers];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -56,21 +49,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.peers count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"peerCell" forIndexPath:indexPath];
+    cell.textLabel.text = ((MCPeerID *)((NSDictionary *)self.peers[indexPath.row])[@"id"]).displayName;
+    cell.detailTextLabel.text = ((NSDictionary *)((NSDictionary *)self.peers[indexPath.row])[@"info"])[@"Interests"];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -121,9 +113,10 @@
 }
 */
 
-- (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController
+- (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
 {
-    [browserViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.peers addObject:@{@"id":peerID, @"info":info}];
+    [self.tableView reloadData];
 }
 
 @end
