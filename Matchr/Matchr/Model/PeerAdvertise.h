@@ -14,7 +14,7 @@ static NSString * const XXServiceType = @"testA";
 
 @interface PeerAdvertise : NSObject <MCNearbyServiceAdvertiserDelegate, MCSessionDelegate>
 
-@property (retain, nonatomic) MCPeerID *localPeerID;
-@property (retain, nonatomic) MCSession *session;
+@property (readonly, nonatomic, retain) MCPeerID *localPeerID;
+@property (readonly, retain) MCSession *session;
 
 @end

@@ -10,6 +10,11 @@
 #import "PeerAdvertise.h"
 
 
+static NSString * const kID = @"id";
+static NSString * const kInfo = @"info";
+
+
+
 @interface KCLNearbyBroadcastsTableViewController ()
 
 @property (retain, nonatomic) PeerAdvertise *advertise;
@@ -68,8 +73,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"peerCell" forIndexPath:indexPath];
-    cell.textLabel.text = ((MCPeerID *)((NSDictionary *)self.peers[indexPath.row])[@"id"]).displayName;
-    cell.detailTextLabel.text = ((NSDictionary *)((NSDictionary *)self.peers[indexPath.row])[@"info"])[@"Interests"];
+    cell.textLabel.text = ((MCPeerID *)((NSDictionary *)self.peers[indexPath.row])[kID]).displayName;
+    cell.detailTextLabel.text = ((NSDictionary *)((NSDictionary *)self.peers[indexPath.row])[kInfo])[@"Interests"];
     
     return cell;
 }
@@ -126,13 +131,14 @@
 
 - (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
 {
-    [self.peers addObject:@{@"id":peerID, @"info":info}];
+    [self.peers addObject:@{kID:peerID, kInfo:info}];
     [self.tableView reloadData];
 }
 
 - (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
 {
     [self.peers removeObject:peerID];
+    [self.tableView reloadData];
 }
 
 - (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
