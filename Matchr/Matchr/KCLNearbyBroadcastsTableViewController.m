@@ -7,7 +7,7 @@
 //
 
 #import "KCLNearbyBroadcastsTableViewController.h"
-
+#import "PeerAdvertise.h"
 @interface KCLNearbyBroadcastsTableViewController ()
 
 @end
@@ -17,7 +17,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    NSLog(XXServiceType);
+    PeerAdvertise *advertise = [[PeerAdvertise alloc] init];
+    MCNearbyServiceBrowser *browser = [[MCNearbyServiceBrowser alloc] initWithPeer:advertise.localPeerID serviceType:XXServiceType];
+    //browser.delegate = self;
+    MCBrowserViewController *browserViewController =
+    [[MCBrowserViewController alloc] initWithBrowser:browser
+                                             session:advertise.session];
+    browserViewController.delegate = self;
+    [self presentViewController:browserViewController
+                       animated:YES
+                     completion:
+     ^{
+         [browser startBrowsingForPeers];
+     }];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -105,5 +118,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController
+{
+    [browserViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
