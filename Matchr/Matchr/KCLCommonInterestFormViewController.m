@@ -40,9 +40,9 @@
 */
 
 - (IBAction)sendItOutAction:(id)sender {
-    if (![self.titleField.text isEqualToString:@""] && ![self.interestField.text isEqualToString:@""]) {
-        NSLog(@"Title: %@ Interest: %@", self.titleField.text, self.interestField.text);
-    }
+//    if (![self.titleField.text isEqualToString:@""] && ![self.interestField.text isEqualToString:@""]) {
+//        NSLog(@"Title: %@ Interest: %@", self.titleField.text, self.interestField.text);
+//    }
 }
 
 @end
