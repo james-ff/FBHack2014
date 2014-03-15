@@ -22,7 +22,10 @@
     if (!_advertiserAssistant) {
         _advertiserAssistant =
         [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.localPeerID
-                                          discoveryInfo:nil
+                                          discoveryInfo:@{
+                                                          @"Interests" : @"Cricket, Thor",
+                                                          @"Skills" : @"Objective-C, Ruby"
+                                                          }
                                             serviceType:XXServiceType];
         _advertiserAssistant.delegate = self;
     }
@@ -52,7 +55,6 @@
 {
     if (self = [super init]) {
         [self.advertiserAssistant startAdvertisingPeer];
-        NSLog(@"%@", self.advertiserAssistant);
     }
     return self;
 }
