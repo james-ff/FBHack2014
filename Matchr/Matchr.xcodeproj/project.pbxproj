@@ -194,6 +194,8 @@
 				8C629E8818D4B60B00DCE08E /* KCLCommonInterestFormViewController.m */,
 				8C629E8B18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.h */,
 				8C629E8C18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m */,
+				B9B5B96E18D4C1E600ADDC70 /* KCLBroadcastsViewController.h */,
+				B9B5B96F18D4C1E600ADDC70 /* KCLBroadcastsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
