@@ -26,6 +26,7 @@
 		8C629E8318D4ACEF00DCE08E /* KCLiBroadcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E8218D4ACEF00DCE08E /* KCLiBroadcastViewController.m */; };
 		8C629E8618D4B58000DCE08E /* KCLSkillSetFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E8518D4B58000DCE08E /* KCLSkillSetFormViewController.m */; };
 		8C629E8918D4B60B00DCE08E /* KCLCommonInterestFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E8818D4B60B00DCE08E /* KCLCommonInterestFormViewController.m */; };
+		8C629E8D18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E8C18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m */; };
 		B9AD088C18D4AA660012A36E /* PeerAdvertise.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AD088B18D4AA660012A36E /* PeerAdvertise.m */; };
 		B9B5B96818D4ACDA00ADDC70 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B5B96718D4ACDA00ADDC70 /* MultipeerConnectivity.framework */; };
 		B9B5B96B18D4BBBA00ADDC70 /* PeerDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B5B96A18D4BBBA00ADDC70 /* PeerDiscover.m */; };
@@ -67,6 +68,8 @@
 		8C629E8518D4B58000DCE08E /* KCLSkillSetFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCLSkillSetFormViewController.m; sourceTree = "<group>"; };
 		8C629E8718D4B60B00DCE08E /* KCLCommonInterestFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCLCommonInterestFormViewController.h; sourceTree = "<group>"; };
 		8C629E8818D4B60B00DCE08E /* KCLCommonInterestFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCLCommonInterestFormViewController.m; sourceTree = "<group>"; };
+		8C629E8B18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCLNearbyBroadcastsTableViewController.h; sourceTree = "<group>"; };
+		8C629E8C18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCLNearbyBroadcastsTableViewController.m; sourceTree = "<group>"; };
 		B9AD088A18D4AA660012A36E /* PeerAdvertise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerAdvertise.h; path = Model/PeerAdvertise.h; sourceTree = "<group>"; };
 		B9AD088B18D4AA660012A36E /* PeerAdvertise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerAdvertise.m; path = Model/PeerAdvertise.m; sourceTree = "<group>"; };
 		B9B5B96718D4ACDA00ADDC70 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
@@ -186,6 +189,8 @@
 				8C629E8518D4B58000DCE08E /* KCLSkillSetFormViewController.m */,
 				8C629E8718D4B60B00DCE08E /* KCLCommonInterestFormViewController.h */,
 				8C629E8818D4B60B00DCE08E /* KCLCommonInterestFormViewController.m */,
+				8C629E8B18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.h */,
+				8C629E8C18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				8C629E5918D4912200DCE08E /* Matchr.xcdatamodeld in Sources */,
 				8C629E5618D4912200DCE08E /* KCLAppDelegate.m in Sources */,
 				B9B5B96B18D4BBBA00ADDC70 /* PeerDiscover.m in Sources */,
+				8C629E8D18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
