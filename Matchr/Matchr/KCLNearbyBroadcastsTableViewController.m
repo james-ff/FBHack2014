@@ -124,4 +124,8 @@
     [browserViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
+    
+}
+
 @end
