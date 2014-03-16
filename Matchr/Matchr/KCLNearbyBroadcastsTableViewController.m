@@ -38,8 +38,8 @@ static NSString * const kInfo = @"info";
 {
     [super viewDidLoad];
 
-    [self.advertise startBroadcasting];
     self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
+        [self.advertise startBroadcasting];
     self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
     self.browser.delegate = self;
     [self.browser startBrowsingForPeers];
@@ -127,6 +127,9 @@ static NSString * const kInfo = @"info";
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    UITableViewCell * cell = (UITableViewCell *)sender;
+    NSUInteger row = [self.tableView indexPathForCell:cell].row;
+    [self.browser invitePeer:self.peers[row][kID] toSession:self.advertise.session withContext:nil timeout:0];
 }
 
 
@@ -134,7 +137,6 @@ static NSString * const kInfo = @"info";
 {
     if (![self.peers containsObject:[self PeerDictionaryForPeer:peerID]]) {
         [self.peers addObject:@{kID:peerID, kInfo:info}];
-        [self.advertise.session connectPeer:peerID withNearbyConnectionData:nil];
     }
     [self.tableView reloadData];
 }

@@ -52,7 +52,6 @@
 
 #import "KCLAppDelegate.h"
 #import "MainViewController.h"
-#import "SessionContainer.h"
 #import "Transcript.h"
 #import "MessageView.h"
 #import "ImageView.h"
@@ -63,14 +62,14 @@
 NSString * const kNSDefaultDisplayName = @"displayNameKey";
 NSString * const kNSDefaultServiceType = @"serviceTypeKey";
 
-@interface MainViewController () <MCBrowserViewControllerDelegate, UITextFieldDelegate, SessionContainerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface MainViewController () <UITextFieldDelegate, SessionContainerDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 // Display name for local MCPeerID
 @property (copy, nonatomic) NSString *displayName;
 // Service type for discovery
 @property (copy, nonatomic) NSString *serviceType;
 // MC Session for managing peer state and send/receive data between peers
-@property (retain, nonatomic) SessionContainer *sessionContainer;
+
 // TableView Data source for managing sent/received messagesz
 @property (retain, nonatomic) NSMutableArray *transcripts;
 // Map of resource names to transcripts array index
@@ -100,11 +99,11 @@ NSString * const kNSDefaultServiceType = @"serviceTypeKey";
     self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
     self.displayName = self.advertise.localPeerID.displayName;
     self.serviceType = XXServiceType;
+    self.advertise.delegate = self;
 
         // Show the service type (room name) as a title
         self.navigationItem.title = self.serviceType;
-        // create the session
-        [self createSession];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -118,26 +117,6 @@ NSString * const kNSDefaultServiceType = @"serviceTypeKey";
     [super viewWillDisappear:animated];
     // Stop listening for keyboard notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - MCBrowserViewControllerDelegate methods
-
-// Override this method to filter out peers based on application specific needs
-- (BOOL)browserViewController:(MCBrowserViewController *)browserViewController shouldPresentNearbyPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
-{
-    return YES;
-}
-
-// Override this to know when the user has pressed the "done" button in the MCBrowserViewController
-- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController
-{
-    [browserViewController dismissViewControllerAnimated:YES completion:nil];
-}
-
-// Override this to know when the user has pressed the "cancel" button in the MCBrowserViewController
-- (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController
-{
-    [browserViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - SessionContainerDelegate
@@ -167,14 +146,6 @@ NSString * const kNSDefaultServiceType = @"serviceTypeKey";
 
 #pragma mark - private methods
 
-// Private helper method for the Multipeer Connectivity local peerID, session, and advertiser.  This makes the application discoverable and ready to accept invitations
-- (void)createSession
-{
-    // Create the SessionContainer for managing session related functionality.
-    self.sessionContainer = [[SessionContainer alloc] initWithDisplayName:self.displayName serviceType:self.serviceType];
-    // Set this view controller as the SessionContainer delegate so we can display incoming Transcripts and session state changes in our table view.
-    _sessionContainer.delegate = self;
-}
 
 // Helper method for inserting a sent/received message into the data source and reload the view.
 // Make sure you call this on the main thread
@@ -265,21 +236,6 @@ NSString * const kNSDefaultServiceType = @"serviceTypeKey";
 
 #pragma mark - IBAction methods
 
-// Action method when pressing the "browse" (search icon).  It presents the MCBrowserViewController: a framework UI which enables users to invite and connect to other peers with the same room name (aka service type).
-- (IBAction)browseForPeers:(id)sender
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    // Instantiate and present the MCBrowserViewController
-    MCBrowserViewController *browserViewController = [[MCBrowserViewController alloc] initWithServiceType:self.serviceType session:self.sessionContainer.session];
-                                                      
-	browserViewController.delegate = self;
-    browserViewController.minimumNumberOfPeers = kMCSessionMinimumNumberOfPeers;
-    browserViewController.maximumNumberOfPeers = kMCSessionMaximumNumberOfPeers;
-
-    [self presentViewController:browserViewController animated:YES completion:nil];
-}
-
 // Action method when user presses "send"
 - (IBAction)sendMessageTapped:(id)sender
 {    
@@ -355,7 +311,7 @@ NSString * const kNSDefaultServiceType = @"serviceTypeKey";
         NSURL *imageUrl = [NSURL fileURLWithPath:filePath];
 
         // Send the resource to the remote peers and get the resulting progress transcript
-        Transcript *transcript = [self.sessionContainer sendImage:imageUrl];
+        Transcript *transcript = [self.advertise sendImage:imageUrl];
 
         // Add the transcript to the data source and reload
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -395,7 +351,7 @@ NSString * const kNSDefaultServiceType = @"serviceTypeKey";
         [textField resignFirstResponder];
         
         // Send the message
-        Transcript *transcript = [self.sessionContainer sendMessage:self.messageComposeTextField.text];
+        Transcript *transcript = [self.advertise sendMessage:self.messageComposeTextField.text];
 
         if (transcript) {
             // Add the transcript to the table view data source and reload
