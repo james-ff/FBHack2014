@@ -9,8 +9,10 @@
 #import "KCLSubSelectionTableViewController.h"
 #import "SubSelection.h"
 #import "Selection.h"
+#import "PeerAdvertise.h"
+#import "KCLAppDelegate.h"
 @interface KCLSubSelectionTableViewController ()
-
+@property (retain, nonatomic) PeerAdvertise *advertise;
 @end
 
 @implementation KCLSubSelectionTableViewController
@@ -27,7 +29,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    SubSelection *a = [self.selections firstObject];
+        NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    NSString *s = [defaults objectForKey:a.parentSelection.name];
+    NSLog(s);
+    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:a.parentSelection.name
+     ];
+    self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -66,12 +74,15 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.advertise stopBroadcasting];
     [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     SubSelection *a = self.selections[indexPath.row];
     NSString *s = [defaults objectForKey:a.parentSelection.name];
     [defaults setObject:[s stringByAppendingString:[NSString stringWithFormat:@"%@\n", a.name]] forKey:a.parentSelection.name];
     [defaults synchronize];
+    
+    [self.advertise startBroadcasting];
 }
 
 /*

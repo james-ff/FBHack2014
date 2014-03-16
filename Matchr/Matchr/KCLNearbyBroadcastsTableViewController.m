@@ -46,17 +46,21 @@ static NSString * const kInfo = @"info";
         
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"Interests"];
-    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"Skills"];
     
     self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
     [self.advertise startBroadcasting];
     self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID
                                                     serviceType:XXServiceType];
     self.browser.delegate = self;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    
     [self.browser stopBrowsingForPeers];
     [self.browser startBrowsingForPeers];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,7 +93,7 @@ static NSString * const kInfo = @"info";
      UILabel *Skills = (UILabel *)[cell.contentView viewWithTag:30];
      UILabel *Interests = (UILabel *)[cell.contentView viewWithTag:40];
     label.text = self.peers[indexPath.row][kInfo][@"Name"];
-    biography.text = self.peers[indexPath.row][kInfo][@"Bigraphy"];
+    biography.text = self.peers[indexPath.row][kInfo][@"Biography"];
     Interests.text = self.peers[indexPath.row][kInfo][@"Interests"];
     Skills.text = self.peers[indexPath.row][kInfo][@"Skills"];
     
