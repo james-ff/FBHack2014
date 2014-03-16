@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-static NSString * const XXServiceType = @"testB";
+static NSString * const XXServiceType = @"testC";
 
 @class Transcript;
 
@@ -22,8 +22,6 @@ static NSString * const XXServiceType = @"testB";
 
 @property (assign, nonatomic) id<SessionContainerDelegate> delegate;
 
-// Designated initializer
-- (id)initWithDisplayName:(NSString *)displayName serviceType:(NSString *)serviceType;
 // Method for sending text messages to all connected remote peers.  Returna a message type transcript
 - (Transcript *)sendMessage:(NSString *)message;
 // Method for sending image resources to all connected remote peers.  Returns an progress type transcript for monitoring tranfer

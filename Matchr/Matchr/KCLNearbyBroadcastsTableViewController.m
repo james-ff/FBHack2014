@@ -39,7 +39,7 @@ static NSString * const kInfo = @"info";
     [super viewDidLoad];
 
     self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
-        [self.advertise startBroadcasting];
+    [self.advertise startBroadcasting];
     self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
     self.browser.delegate = self;
     [self.browser startBrowsingForPeers];
