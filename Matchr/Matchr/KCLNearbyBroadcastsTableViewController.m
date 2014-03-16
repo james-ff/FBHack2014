@@ -38,11 +38,13 @@ static NSString * const kInfo = @"info";
 {
     [super viewDidLoad];
     
-    if (![[[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys] containsObject:@"initialValuesHaveBeenWritten"])
+    if (![[[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys] containsObject:@"initialValuesHaveBeenWritten2"])
     {
         [[NSUserDefaults standardUserDefaults] setValue:@"Hani" forKey:@"name"];
         [[NSUserDefaults standardUserDefaults] setValue:@"Lorem ipsum" forKey:@"biography"];
-        [[NSUserDefaults standardUserDefaults] setValue:@"TRUE" forKey:@"initialValuesHaveBeenWritten"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"Interests"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"Lorem ipsum" forKey:@"Skills"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"TRUE" forKey:@"initialValuesHaveBeenWritten2"];
         
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
