@@ -240,10 +240,10 @@
 				B91639FF18D526AA0093909C /* ProgressView.h */,
 				B9163A0018D526AA0093909C /* ProgressView.m */,
 				B9163A0118D526AA0093909C /* MainViewController.h */,
+				B9163A0218D526AA0093909C /* MainViewController.m */,
 				B9163A0E18D531A50093909C /* bubble-left@2x.png */,
 				B9163A0F18D531A50093909C /* bubble-right@2x.png */,
 				B9163A1018D531A50093909C /* PhotoButton@2x.png */,
-				B9163A0218D526AA0093909C /* MainViewController.m */,
 			);
 			name = PeerChat;
 			sourceTree = "<group>";

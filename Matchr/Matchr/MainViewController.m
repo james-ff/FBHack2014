@@ -253,6 +253,10 @@ NSString * const kNSDefaultServiceType = @"serviceTypeKey";
     [sheet showFromToolbar:self.navigationController.toolbar];
 }
 
+- (IBAction)doneWithView:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - UIActionSheetDelegate methods
 
 // Override this method to know if user wants to take a new photo or select from the photo library

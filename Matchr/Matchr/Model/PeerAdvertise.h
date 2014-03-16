@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-static NSString * const XXServiceType = @"testB";
+static NSString * const XXServiceType = @"testC";
 
 @class Transcript;
 

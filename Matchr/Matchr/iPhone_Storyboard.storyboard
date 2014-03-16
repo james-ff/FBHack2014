@@ -75,7 +75,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Mne-oR-rRE" kind="push" id="OxJ-Id-Gm4"/>
+                                    <segue destination="zNu-vm-xfY" kind="modal" id="OxJ-Id-Gm4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -374,27 +374,9 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="1CL-F6-d7f">
-                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="yxq-Ia-09C">
-                            <connections>
-                                <action selector="browseForPeers:" destination="Mne-oR-rRE" id="F4e-vV-0iG"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="Otb-js-D8o">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gah-RV-vt6">
-                                <rect key="frame" x="282" y="11" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="1CL-F6-d7f"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="messageComposeTextField" destination="qTb-ts-JVC" id="J1h-Uj-c8E"/>
                         <outlet property="sendMessageButton" destination="H0E-hF-Qtl" id="i2a-GM-dfk"/>
@@ -402,7 +384,29 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMD-Ie-PMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2270" y="-975"/>
+            <point key="canvasLocation" x="2884" y="-935"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HFC-i2-lIt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="zNu-vm-xfY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kC4-vT-qoS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="slo-DO-SQQ">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="Mne-oR-rRE" kind="relationship" relationship="rootViewController" id="NPt-Nk-UK2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-ab-L7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2358" y="-935"/>
         </scene>
     </scenes>
     <resources>
