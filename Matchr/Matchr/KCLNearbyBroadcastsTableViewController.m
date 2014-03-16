@@ -118,8 +118,8 @@ static NSString * const kInfo = @"info";
     return nil;
 }
 
-- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
-    
+- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController
+{
 }
 
 @end

@@ -8,7 +8,6 @@
 
 @import MultipeerConnectivity;
 
-
 #import "KCLAppDelegate.h"
 #import "MainViewController.h"
 #import "Transcript.h"
@@ -381,6 +380,12 @@
 - (void)keyboardWillHide:(NSNotification *)notification {
     // move the toolbar frame down as keyboard animates into view
     [self moveToolBarUp:NO forKeyboardNotification:notification];
+}
+- (IBAction)dissmissViewController:(UIBarButtonItem *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.advertise.session disconnect];
+    [self.advertise startBroadcasting];
 }
 
 @end

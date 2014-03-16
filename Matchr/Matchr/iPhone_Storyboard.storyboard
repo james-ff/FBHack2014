@@ -374,7 +374,13 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="1CL-F6-d7f"/>
+                    <navigationItem key="navigationItem" id="1CL-F6-d7f">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="bit-6U-I0K">
+                            <connections>
+                                <action selector="dissmissViewController:" destination="Mne-oR-rRE" id="ta6-90-grQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

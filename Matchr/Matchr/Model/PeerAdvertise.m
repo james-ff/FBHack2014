@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 KCL. All rights reserved.
 //
 
+@import MultipeerConnectivity;
+
 #import "PeerAdvertise.h"
 #import "Transcript.h"
 

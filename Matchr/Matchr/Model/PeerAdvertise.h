@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MultipeerConnectivity/MultipeerConnectivity.h>
 
 
 static NSString * const XXServiceType = @"testC";
 
 
 @class Transcript;
+@class MCPeerID;
+@class MCSession;
 
-
+@protocol MCSessionDelegate;
+@protocol MCNearbyServiceAdvertiserDelegate;
 @protocol SessionContainerDelegate;
 
 
