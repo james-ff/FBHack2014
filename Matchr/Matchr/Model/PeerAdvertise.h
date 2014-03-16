@@ -17,4 +17,7 @@ static NSString * const XXServiceType = @"testB";
 @property (retain, nonatomic) MCPeerID *localPeerID;
 @property (retain, nonatomic) MCSession *session;
 
+-(void)stopBroadcasting;
+-(void)startBroadcasting;
+
 @end

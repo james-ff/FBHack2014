@@ -17,21 +17,6 @@
 
 @implementation PeerAdvertise
 
-- (MCNearbyServiceAdvertiser *)serviceAdvertiser
-{
-    if (!_serviceAdvertiser) {
-        _serviceAdvertiser =
-        [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.localPeerID
-                                          discoveryInfo:@{
-                                                          @"Interests" : @"No, Thor",
-                                                          @"Skills" : @"Objective-C, Ruby"
-                                                          }
-                                            serviceType:XXServiceType];
-        _serviceAdvertiser.delegate = self;
-    }
-    return _serviceAdvertiser;
-}
-
 - (MCSession *)session
 {
     if (!_session) {
@@ -54,7 +39,7 @@
 - (id)init
 {
     if (self = [super init]) {
-        [self.serviceAdvertiser startAdvertisingPeer];
+        [self startBroadcasting];
     }
     return self;
 }
@@ -62,6 +47,23 @@
 - (void)dealloc
 {
     [_serviceAdvertiser stopAdvertisingPeer];
+}
+
+- (void)stopBroadcasting
+{
+    [self.serviceAdvertiser stopAdvertisingPeer];
+}
+
+- (void)startBroadcasting
+{
+    self.serviceAdvertiser =         [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.localPeerID
+                                                                       discoveryInfo:@{
+                                                                                       @"Interests" : @"Yes, Thor",
+                                                                                       @"Skills" : @"Objective-C, Ruby"
+                                                                                       }
+                                                                         serviceType:XXServiceType];
+    _serviceAdvertiser.delegate = self;
+    [self.serviceAdvertiser startAdvertisingPeer];
 }
 
 #pragma mark - MCNearbyServiceAdvertiserDelegate

@@ -7,6 +7,7 @@
 //
 
 #import "KCLAppDelegate.h"
+#import "PeerAdvertise.h"
 
 @implementation KCLAppDelegate
 
@@ -142,5 +143,15 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+- (PeerAdvertise *)advertise
+{
+    if (!_advertise) {
+        _advertise = [[PeerAdvertise alloc] init];
+    }
+    
+    return _advertise;
+}
+
 
 @end

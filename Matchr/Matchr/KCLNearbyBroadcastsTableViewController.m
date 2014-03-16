@@ -8,6 +8,7 @@
 
 #import "KCLNearbyBroadcastsTableViewController.h"
 #import "PeerAdvertise.h"
+#import "KCLAppDelegate.h"
 
 
 static NSString * const kID = @"id";
@@ -37,7 +38,7 @@ static NSString * const kInfo = @"info";
 {
     [super viewDidLoad];
 
-    self.advertise = [[PeerAdvertise alloc] init];
+    self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
     self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
     self.browser.delegate = self;
     [self.browser startBrowsingForPeers];
