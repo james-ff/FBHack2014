@@ -38,6 +38,7 @@ static NSString * const kInfo = @"info";
 {
     [super viewDidLoad];
 
+    [self.advertise startBroadcasting];
     self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
     self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
     self.browser.delegate = self;
@@ -118,7 +119,7 @@ static NSString * const kInfo = @"info";
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -127,12 +128,13 @@ static NSString * const kInfo = @"info";
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 - (void)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info
 {
     if (![self.peers containsObject:[self PeerDictionaryForPeer:peerID]]) {
         [self.peers addObject:@{kID:peerID, kInfo:info}];
+        [self.advertise.session connectPeer:peerID withNearbyConnectionData:nil];
     }
     [self.tableView reloadData];
 }

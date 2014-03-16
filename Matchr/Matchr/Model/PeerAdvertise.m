@@ -36,14 +36,6 @@
     return _localPeerID;
 }
 
-- (id)init
-{
-    if (self = [super init]) {
-        [self startBroadcasting];
-    }
-    return self;
-}
-
 - (void)dealloc
 {
     [_serviceAdvertiser stopAdvertisingPeer];
