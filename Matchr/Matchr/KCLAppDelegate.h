@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class PeerAdvertise;
+
 
 @interface KCLAppDelegate : UIResponder <UIApplicationDelegate>
 

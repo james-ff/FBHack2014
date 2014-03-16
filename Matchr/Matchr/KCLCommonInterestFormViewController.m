@@ -8,9 +8,13 @@
 
 #import "KCLCommonInterestFormViewController.h"
 
+
 @interface KCLCommonInterestFormViewController ()
+
 @property (strong, nonatomic) IBOutlet UITextField *interestField;
+
 @end
+
 
 @implementation KCLCommonInterestFormViewController
 
@@ -27,22 +31,21 @@
 }
 
 
-
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)sendItOutAction:(id)sender {
-//    if (![self.titleField.text isEqualToString:@""] && ![self.interestField.text isEqualToString:@""]) {
-//        NSLog(@"Title: %@ Interest: %@", self.titleField.text, self.interestField.text);
-//    }
+    //    if (![self.titleField.text isEqualToString:@""] && ![self.interestField.text isEqualToString:@""]) {
+    //        NSLog(@"Title: %@ Interest: %@", self.titleField.text, self.interestField.text);
+    //    }
 }
 
 @end

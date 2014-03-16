@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MultipeerConnectivity/MultipeerConnectivity.h>
+
+@protocol MCNearbyServiceBrowserDelegate;
+
 
 @interface KCLNearbyBroadcastsTableViewController : UITableViewController <MCNearbyServiceBrowserDelegate>
 

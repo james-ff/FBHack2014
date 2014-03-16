@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 KCL. All rights reserved.
 //
 
+@import MultipeerConnectivity;
+
 #import "KCLNearbyBroadcastsTableViewController.h"
 #import "PeerAdvertise.h"
 #import "KCLAppDelegate.h"
@@ -13,7 +15,6 @@
 
 static NSString * const kID = @"id";
 static NSString * const kInfo = @"info";
-
 
 
 @interface KCLNearbyBroadcastsTableViewController ()
@@ -28,26 +29,21 @@ static NSString * const kInfo = @"info";
 @implementation KCLNearbyBroadcastsTableViewController
 
 - (NSMutableArray *)peers {
-    if (!_peers) {
-        _peers = [[NSMutableArray alloc] init];
-    }
+    if (!_peers) _peers = [[NSMutableArray alloc] init];
+    
     return _peers;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
     [self.advertise startBroadcasting];
-    self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID serviceType:XXServiceType];
+    self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID
+                                                    serviceType:XXServiceType];
     self.browser.delegate = self;
     [self.browser startBrowsingForPeers];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +51,7 @@ static NSString * const kInfo = @"info";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 
@@ -74,50 +71,11 @@ static NSString * const kInfo = @"info";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"peerCell" forIndexPath:indexPath];
-    cell.textLabel.text = ((MCPeerID *)((NSDictionary *)self.peers[indexPath.row])[kID]).displayName;
-    cell.detailTextLabel.text = ((NSDictionary *)((NSDictionary *)self.peers[indexPath.row])[kInfo])[@"Interests"];
+    cell.textLabel.text = ((MCPeerID *)self.peers[indexPath.row][kID]).displayName;
+    cell.detailTextLabel.text = self.peers[indexPath.row][kInfo][@"Interests"];
     
     return cell;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 #pragma mark - Navigation
@@ -129,7 +87,10 @@ static NSString * const kInfo = @"info";
     // Pass the selected object to the new view controller.
     UITableViewCell * cell = (UITableViewCell *)sender;
     NSUInteger row = [self.tableView indexPathForCell:cell].row;
-    [self.browser invitePeer:self.peers[row][kID] toSession:self.advertise.session withContext:nil timeout:0];
+    [self.browser invitePeer:self.peers[row][kID]
+                   toSession:self.advertise.session
+                 withContext:nil
+                     timeout:0];
 }
 
 

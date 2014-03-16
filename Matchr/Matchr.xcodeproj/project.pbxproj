@@ -33,9 +33,6 @@
 		B9163A0A18D526AA0093909C /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B91639FE18D526AA0093909C /* ImageView.m */; };
 		B9163A0B18D526AA0093909C /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9163A0018D526AA0093909C /* ProgressView.m */; };
 		B9163A0C18D526AA0093909C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9163A0218D526AA0093909C /* MainViewController.m */; };
-		B9163A1118D531A50093909C /* bubble-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9163A0E18D531A50093909C /* bubble-left@2x.png */; };
-		B9163A1218D531A50093909C /* bubble-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9163A0F18D531A50093909C /* bubble-right@2x.png */; };
-		B9163A1318D531A50093909C /* PhotoButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9163A1018D531A50093909C /* PhotoButton@2x.png */; };
 		B9AD088C18D4AA660012A36E /* PeerAdvertise.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AD088B18D4AA660012A36E /* PeerAdvertise.m */; };
 		B9B5B96818D4ACDA00ADDC70 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B5B96718D4ACDA00ADDC70 /* MultipeerConnectivity.framework */; };
 /* End PBXBuildFile section */
@@ -90,9 +87,6 @@
 		B9163A0018D526AA0093909C /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		B9163A0118D526AA0093909C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B9163A0218D526AA0093909C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		B9163A0E18D531A50093909C /* bubble-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble-left@2x.png"; sourceTree = "<group>"; };
-		B9163A0F18D531A50093909C /* bubble-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble-right@2x.png"; sourceTree = "<group>"; };
-		B9163A1018D531A50093909C /* PhotoButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PhotoButton@2x.png"; sourceTree = "<group>"; };
 		B9AD088A18D4AA660012A36E /* PeerAdvertise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerAdvertise.h; path = Model/PeerAdvertise.h; sourceTree = "<group>"; };
 		B9AD088B18D4AA660012A36E /* PeerAdvertise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerAdvertise.m; path = Model/PeerAdvertise.m; sourceTree = "<group>"; };
 		B9B5B96718D4ACDA00ADDC70 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
@@ -241,9 +235,6 @@
 				B9163A0018D526AA0093909C /* ProgressView.m */,
 				B9163A0118D526AA0093909C /* MainViewController.h */,
 				B9163A0218D526AA0093909C /* MainViewController.m */,
-				B9163A0E18D531A50093909C /* bubble-left@2x.png */,
-				B9163A0F18D531A50093909C /* bubble-right@2x.png */,
-				B9163A1018D531A50093909C /* PhotoButton@2x.png */,
 			);
 			name = PeerChat;
 			sourceTree = "<group>";
@@ -325,11 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C629E5018D4912200DCE08E /* InfoPlist.strings in Resources */,
-				B9163A1318D531A50093909C /* PhotoButton@2x.png in Resources */,
 				8C629E5B18D4912200DCE08E /* Images.xcassets in Resources */,
-				B9163A1218D531A50093909C /* bubble-right@2x.png in Resources */,
 				8C629E7918D491CF00DCE08E /* iPhone_Storyboard.storyboard in Resources */,
-				B9163A1118D531A50093909C /* bubble-left@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

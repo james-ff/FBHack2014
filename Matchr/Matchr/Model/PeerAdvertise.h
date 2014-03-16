@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
+
 static NSString * const XXServiceType = @"testC";
+
 
 @class Transcript;
 
+
 @protocol SessionContainerDelegate;
+
 
 @interface PeerAdvertise : NSObject <MCNearbyServiceAdvertiserDelegate, MCSessionDelegate>
 

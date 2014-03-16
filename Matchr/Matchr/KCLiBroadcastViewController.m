@@ -8,10 +8,14 @@
 
 #import "KCLiBroadcastViewController.h"
 
+
 @interface KCLiBroadcastViewController () <UIActionSheetDelegate>
+
 @property (strong, nonatomic) IBOutlet UIButton *broadcastButton;
 @property (nonatomic) BOOL isBroadcasting;
+
 @end
+
 
 @implementation KCLiBroadcastViewController
 
@@ -33,15 +37,15 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)broadcastAction:(id)sender {
     if (self.isBroadcasting) {
@@ -51,13 +55,14 @@
         [self.broadcastButton setTitle:@"Start Broadcasting" forState:UIControlStateNormal];
     } else {
         UIActionSheet *actionView = [[UIActionSheet alloc] initWithTitle:@"Start looking for someone with a:"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"Cancel"
-                                                 destructiveButtonTitle:nil
-                                                      otherButtonTitles:@"Set of skills", @"Common interest",  nil];
+                                                                delegate:self
+                                                       cancelButtonTitle:@"Cancel"
+                                                  destructiveButtonTitle:nil
+                                                       otherButtonTitles:@"Set of skills", @"Common interest",  nil];
         [actionView showInView:self.view];
     }
 }
+
 
 #pragma mark - UIActionSheetDelegate
 
