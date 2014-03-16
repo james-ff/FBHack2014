@@ -38,12 +38,22 @@ static NSString * const kInfo = @"info";
 {
     [super viewDidLoad];
     
+    if (![[[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys] containsObject:@"initialValuesHaveBeenWritten"])
+    {
+        [[NSUserDefaults standardUserDefaults] setValue:@"Hani" forKey:@"name"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"Lorem ipsum" forKey:@"biography"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"TRUE" forKey:@"initialValuesHaveBeenWritten"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
     [self.advertise startBroadcasting];
     self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID
                                                     serviceType:XXServiceType];
     self.browser.delegate = self;
     [self.browser startBrowsingForPeers];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,7 +81,10 @@ static NSString * const kInfo = @"info";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"peerCell" forIndexPath:indexPath];
-    cell.textLabel.text = ((MCPeerID *)self.peers[indexPath.row][kID]).displayName;
+    UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
+    UILabel *biography = (UILabel *)[cell.contentView viewWithTag:20];
+    label.text = ((MCPeerID *)self.peers[indexPath.row][kID]).displayName;
+    biography.text = self.peers[indexPath.row][kInfo][@"Bigraphy"];
     cell.detailTextLabel.text = self.peers[indexPath.row][kInfo][@"Interests"];
     
     return cell;

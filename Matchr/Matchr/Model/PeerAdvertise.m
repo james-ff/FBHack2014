@@ -49,8 +49,11 @@
 
 - (void)startBroadcasting
 {
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     self.serviceAdvertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.localPeerID
                                                                discoveryInfo:@{
+                                                                               @"Name" : [defaults objectForKey:@"name"],
+                                                                               @"Biography" : [defaults objectForKey:@"biography"],
                                                                                @"Interests" : @"Yes, Thor",
                                                                                @"Skills" : @"Objective-C, Ruby"
                                                                                }
@@ -161,7 +164,8 @@
                                                       direction:TRANSCRIPT_DIRECTION_LOCAL];
     
     // Notify the delegate that we have received a new chunk of data from a peer
-    [self.delegate receivedTranscript:transcript];
+    if(self.delegate)
+        [self.delegate receivedTranscript:transcript];
 }
 
 // MCSession Delegate callback when receiving data from a peer in a given session
@@ -176,7 +180,7 @@
                                                       direction:TRANSCRIPT_DIRECTION_RECEIVE];
     
     // Notify the delegate that we have received a new chunk of data from a peer
-    [self.delegate receivedTranscript:transcript];
+    if(self.delegate)[self.delegate receivedTranscript:transcript];
 }
 
 // MCSession delegate callback when we start to receive a resource from a peer in a given session
@@ -189,7 +193,7 @@
                                                        progress:progress
                                                       direction:TRANSCRIPT_DIRECTION_RECEIVE];
     // Notify the UI delegate
-    [self.delegate receivedTranscript:transcript];
+    if(self.delegate) [self.delegate receivedTranscript:transcript];
 }
 
 // MCSession delegate callback when a incoming resource transfer ends (possibly with error)

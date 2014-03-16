@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@interface KCLiBroadcastViewController : UIViewController
-
-- (IBAction)broadcastAction:(id)sender;
+@interface KCLiBroadcastViewController : UIViewController <UITextViewDelegate>
 
 @end

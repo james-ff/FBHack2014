@@ -7,12 +7,14 @@
 //
 
 #import "KCLiBroadcastViewController.h"
+#import "KCLAppDelegate.h"
+#import "PeerAdvertise.h"
 
+@interface KCLiBroadcastViewController ()
 
-@interface KCLiBroadcastViewController () <UIActionSheetDelegate>
-
-@property (strong, nonatomic) IBOutlet UIButton *broadcastButton;
-@property (nonatomic) BOOL isBroadcasting;
+@property (retain, nonatomic) PeerAdvertise *advertise;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextView *biographyTextView;
 
 @end
 
@@ -22,12 +24,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+        NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    self.nameTextField.text = [defaults objectForKey:@"name"];
+    self.biographyTextView.text = [defaults objectForKey:@"biography"];
+    self.biographyTextView.delegate = self;
+    self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
+    
     // Do any additional setup after loading the view.
     
     //[self.navigationController.navigationBar setTranslucent:NO];
     //[self.tabBarController.tabBar setTranslucent:NO];
     
-    self.isBroadcasting = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,34 +55,39 @@
  }
  */
 
-- (IBAction)broadcastAction:(id)sender {
-    if (self.isBroadcasting) {
-        NSLog(@"Stopping Broadcasting");
-        // TODO: Actually stop boradcasting
-        self.isBroadcasting = NO;
-        [self.broadcastButton setTitle:@"Start Broadcasting" forState:UIControlStateNormal];
-    } else {
-        UIActionSheet *actionView = [[UIActionSheet alloc] initWithTitle:@"Start looking for someone with a:"
-                                                                delegate:self
-                                                       cancelButtonTitle:@"Cancel"
-                                                  destructiveButtonTitle:nil
-                                                       otherButtonTitles:@"Set of skills", @"Common interest",  nil];
-        [actionView showInView:self.view];
-    }
+- (IBAction)enterName:(UITextField *)sender {
+    [self.advertise stopBroadcasting];
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:sender.text forKey:@"name"];
+    [defaults synchronize];
+    [self.advertise startBroadcasting];
+}
+- (IBAction)dissmissKeyboard:(UITextField *)sender {
+        [sender resignFirstResponder];
+}
+-(BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    return YES;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+
+        return NO;
 }
 
-
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex != actionSheet.cancelButtonIndex) {
-        [self.broadcastButton setTitle:@"Stop Broadcasting" forState:UIControlStateNormal];
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if (textView == self.biographyTextView) {
+        if ([text isEqualToString:@"\n"]) {
+            [self.advertise stopBroadcasting];
+            NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+            [defaults setObject:textView.text forKey:@"biography"];
+            [defaults synchronize];
+            [self.advertise startBroadcasting];
+            [textView resignFirstResponder];
+            return NO;
+        }
     }
-    if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Set of skills"]) {
-        [self performSegueWithIdentifier:@"skillsForm" sender:self];
-    } else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Common interest"]) {
-        [self performSegueWithIdentifier:@"interestForm" sender:self];
-    }
+    return YES;
 }
-
 @end

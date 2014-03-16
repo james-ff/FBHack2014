@@ -14,7 +14,6 @@
 		8C629E5018D4912200DCE08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C629E4E18D4912200DCE08E /* InfoPlist.strings */; };
 		8C629E5218D4912200DCE08E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E5118D4912200DCE08E /* main.m */; };
 		8C629E5618D4912200DCE08E /* KCLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E5518D4912200DCE08E /* KCLAppDelegate.m */; };
-		8C629E5918D4912200DCE08E /* Matchr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C629E5718D4912200DCE08E /* Matchr.xcdatamodeld */; };
 		8C629E5B18D4912200DCE08E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C629E5A18D4912200DCE08E /* Images.xcassets */; };
 		8C629E6218D4912300DCE08E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C629E6118D4912300DCE08E /* XCTest.framework */; };
 		8C629E6318D4912300DCE08E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C629E4318D4912200DCE08E /* Foundation.framework */; };
@@ -33,6 +32,12 @@
 		B9163A0A18D526AA0093909C /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B91639FE18D526AA0093909C /* ImageView.m */; };
 		B9163A0B18D526AA0093909C /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9163A0018D526AA0093909C /* ProgressView.m */; };
 		B9163A0C18D526AA0093909C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9163A0218D526AA0093909C /* MainViewController.m */; };
+		B9163A1918D574950093909C /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9163A1818D574950093909C /* CoreDataTableViewController.m */; };
+		B9163A2218D579080093909C /* Matchr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9163A2018D579080093909C /* Matchr.xcdatamodeld */; };
+		B9163A2818D5882F0093909C /* KCLSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9163A2718D5882F0093909C /* KCLSelectionTableViewController.m */; };
+		B9163A2B18D590D50093909C /* Selection.m in Sources */ = {isa = PBXBuildFile; fileRef = B9163A2A18D590D50093909C /* Selection.m */; };
+		B9163A2E18D590D50093909C /* SubSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = B9163A2D18D590D50093909C /* SubSelection.m */; };
+		B9163A3118D591F90093909C /* KCLSubSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9163A3018D591F90093909C /* KCLSubSelectionTableViewController.m */; };
 		B9AD088C18D4AA660012A36E /* PeerAdvertise.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AD088B18D4AA660012A36E /* PeerAdvertise.m */; };
 		B9B5B96818D4ACDA00ADDC70 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B5B96718D4ACDA00ADDC70 /* MultipeerConnectivity.framework */; };
 /* End PBXBuildFile section */
@@ -59,7 +64,6 @@
 		8C629E5318D4912200DCE08E /* Matchr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Matchr-Prefix.pch"; sourceTree = "<group>"; };
 		8C629E5418D4912200DCE08E /* KCLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KCLAppDelegate.h; sourceTree = "<group>"; };
 		8C629E5518D4912200DCE08E /* KCLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KCLAppDelegate.m; sourceTree = "<group>"; };
-		8C629E5818D4912200DCE08E /* Matchr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Matchr.xcdatamodel; sourceTree = "<group>"; };
 		8C629E5A18D4912200DCE08E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8C629E6018D4912300DCE08E /* MatchrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatchrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C629E6118D4912300DCE08E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -87,6 +91,17 @@
 		B9163A0018D526AA0093909C /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		B9163A0118D526AA0093909C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B9163A0218D526AA0093909C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B9163A1718D574950093909C /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		B9163A1818D574950093909C /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		B9163A2118D579080093909C /* Matchr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Matchr.xcdatamodel; sourceTree = "<group>"; };
+		B9163A2618D5882F0093909C /* KCLSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCLSelectionTableViewController.h; sourceTree = "<group>"; };
+		B9163A2718D5882F0093909C /* KCLSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCLSelectionTableViewController.m; sourceTree = "<group>"; };
+		B9163A2918D590D50093909C /* Selection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selection.h; sourceTree = "<group>"; };
+		B9163A2A18D590D50093909C /* Selection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Selection.m; sourceTree = "<group>"; };
+		B9163A2C18D590D50093909C /* SubSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubSelection.h; sourceTree = "<group>"; };
+		B9163A2D18D590D50093909C /* SubSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubSelection.m; sourceTree = "<group>"; };
+		B9163A2F18D591F90093909C /* KCLSubSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCLSubSelectionTableViewController.h; sourceTree = "<group>"; };
+		B9163A3018D591F90093909C /* KCLSubSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCLSubSelectionTableViewController.m; sourceTree = "<group>"; };
 		B9AD088A18D4AA660012A36E /* PeerAdvertise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerAdvertise.h; path = Model/PeerAdvertise.h; sourceTree = "<group>"; };
 		B9AD088B18D4AA660012A36E /* PeerAdvertise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerAdvertise.m; path = Model/PeerAdvertise.m; sourceTree = "<group>"; };
 		B9B5B96718D4ACDA00ADDC70 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
@@ -161,7 +176,7 @@
 				8C629E7818D491CF00DCE08E /* iPhone_Storyboard.storyboard */,
 				B91639F318D5268A0093909C /* PeerChat */,
 				8C629E5A18D4912200DCE08E /* Images.xcassets */,
-				8C629E5718D4912200DCE08E /* Matchr.xcdatamodeld */,
+				B9163A2018D579080093909C /* Matchr.xcdatamodeld */,
 				8C629E4C18D4912200DCE08E /* Supporting Files */,
 			);
 			path = Matchr;
@@ -174,6 +189,8 @@
 				8C629E4E18D4912200DCE08E /* InfoPlist.strings */,
 				8C629E5118D4912200DCE08E /* main.m */,
 				8C629E5318D4912200DCE08E /* Matchr-Prefix.pch */,
+				B9163A1718D574950093909C /* CoreDataTableViewController.h */,
+				B9163A1818D574950093909C /* CoreDataTableViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -201,12 +218,16 @@
 			children = (
 				8C629E8118D4ACEF00DCE08E /* KCLiBroadcastViewController.h */,
 				8C629E8218D4ACEF00DCE08E /* KCLiBroadcastViewController.m */,
+				B9163A2618D5882F0093909C /* KCLSelectionTableViewController.h */,
+				B9163A2718D5882F0093909C /* KCLSelectionTableViewController.m */,
 				8C629E8418D4B58000DCE08E /* KCLSkillSetFormViewController.h */,
 				8C629E8518D4B58000DCE08E /* KCLSkillSetFormViewController.m */,
 				8C629E8718D4B60B00DCE08E /* KCLCommonInterestFormViewController.h */,
 				8C629E8818D4B60B00DCE08E /* KCLCommonInterestFormViewController.m */,
 				8C629E8B18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.h */,
 				8C629E8C18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m */,
+				B9163A2F18D591F90093909C /* KCLSubSelectionTableViewController.h */,
+				B9163A3018D591F90093909C /* KCLSubSelectionTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -216,6 +237,10 @@
 			children = (
 				B9AD088A18D4AA660012A36E /* PeerAdvertise.h */,
 				B9AD088B18D4AA660012A36E /* PeerAdvertise.m */,
+				B9163A2C18D590D50093909C /* SubSelection.h */,
+				B9163A2D18D590D50093909C /* SubSelection.m */,
+				B9163A2918D590D50093909C /* Selection.h */,
+				B9163A2A18D590D50093909C /* Selection.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -337,18 +362,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9163A0918D526AA0093909C /* MessageView.m in Sources */,
+				B9163A2218D579080093909C /* Matchr.xcdatamodeld in Sources */,
 				8C629E8918D4B60B00DCE08E /* KCLCommonInterestFormViewController.m in Sources */,
+				B9163A1918D574950093909C /* CoreDataTableViewController.m in Sources */,
+				B9163A2B18D590D50093909C /* Selection.m in Sources */,
+				B9163A3118D591F90093909C /* KCLSubSelectionTableViewController.m in Sources */,
 				B9163A0A18D526AA0093909C /* ImageView.m in Sources */,
 				B9163A0718D526AA0093909C /* ProgressObserver.m in Sources */,
 				B9163A0618D526AA0093909C /* Transcript.m in Sources */,
 				B9163A0B18D526AA0093909C /* ProgressView.m in Sources */,
 				B9AD088C18D4AA660012A36E /* PeerAdvertise.m in Sources */,
 				8C629E5218D4912200DCE08E /* main.m in Sources */,
+				B9163A2818D5882F0093909C /* KCLSelectionTableViewController.m in Sources */,
 				8C629E8618D4B58000DCE08E /* KCLSkillSetFormViewController.m in Sources */,
 				8C629E8318D4ACEF00DCE08E /* KCLiBroadcastViewController.m in Sources */,
-				8C629E5918D4912200DCE08E /* Matchr.xcdatamodeld in Sources */,
 				8C629E5618D4912200DCE08E /* KCLAppDelegate.m in Sources */,
 				B9163A0C18D526AA0093909C /* MainViewController.m in Sources */,
+				B9163A2E18D590D50093909C /* SubSelection.m in Sources */,
 				8C629E8D18D4C46000DCE08E /* KCLNearbyBroadcastsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,12 +590,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8C629E5718D4912200DCE08E /* Matchr.xcdatamodeld */ = {
+		B9163A2018D579080093909C /* Matchr.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8C629E5818D4912200DCE08E /* Matchr.xcdatamodel */,
+				B9163A2118D579080093909C /* Matchr.xcdatamodel */,
 			);
-			currentVersion = 8C629E5818D4912200DCE08E /* Matchr.xcdatamodel */;
+			currentVersion = B9163A2118D579080093909C /* Matchr.xcdatamodel */;
 			path = Matchr.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

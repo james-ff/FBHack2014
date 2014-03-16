@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Selection" representedClassName="Selection" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subSelections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubSelection" inverseName="parentSelection" inverseEntity="SubSelection" syncable="YES"/>
+    </entity>
+    <entity name="SubSelection" representedClassName="SubSelection" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parentSelection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Selection" inverseName="subSelections" inverseEntity="Selection" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Selection" positionX="-54" positionY="-9" width="128" height="73"/>
+        <element name="SubSelection" positionX="-27" positionY="36" width="128" height="73"/>
+    </elements>
 </model>
