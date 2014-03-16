@@ -46,12 +46,15 @@ static NSString * const kInfo = @"info";
         
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"Interests"];
+    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"Skills"];
     
     self.advertise = ((KCLAppDelegate *)[[UIApplication sharedApplication] delegate]).advertise;
     [self.advertise startBroadcasting];
     self.browser = [[MCNearbyServiceBrowser alloc] initWithPeer:self.advertise.localPeerID
                                                     serviceType:XXServiceType];
     self.browser.delegate = self;
+    [self.browser stopBrowsingForPeers];
     [self.browser startBrowsingForPeers];
     
 }
@@ -83,9 +86,12 @@ static NSString * const kInfo = @"info";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"peerCell" forIndexPath:indexPath];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:10];
     UILabel *biography = (UILabel *)[cell.contentView viewWithTag:20];
+     UILabel *Skills = (UILabel *)[cell.contentView viewWithTag:30];
+     UILabel *Interests = (UILabel *)[cell.contentView viewWithTag:40];
     label.text = ((MCPeerID *)self.peers[indexPath.row][kID]).displayName;
     biography.text = self.peers[indexPath.row][kInfo][@"Bigraphy"];
-    cell.detailTextLabel.text = self.peers[indexPath.row][kInfo][@"Interests"];
+    Interests.text = self.peers[indexPath.row][kInfo][@"Interests"];
+    Skills.text = self.peers[indexPath.row][kInfo][@"Skills"];
     
     return cell;
 }

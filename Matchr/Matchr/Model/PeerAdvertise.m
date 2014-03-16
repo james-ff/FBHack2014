@@ -54,8 +54,8 @@
                                                                discoveryInfo:@{
                                                                                @"Name" : [defaults objectForKey:@"name"],
                                                                                @"Biography" : [defaults objectForKey:@"biography"],
-                                                                               @"Interests" : @"Yes, Thor",
-                                                                               @"Skills" : @"Objective-C, Ruby"
+                                                                               @"Interests" : [defaults objectForKey:@"Interests"],
+                                                                               @"Skills" : [defaults objectForKey:@"Skills"]
                                                                                }
                                                                  serviceType:XXServiceType];
     self.serviceAdvertiser.delegate = self;

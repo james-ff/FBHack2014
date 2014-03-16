@@ -8,6 +8,7 @@
 
 #import "KCLSubSelectionTableViewController.h"
 #import "SubSelection.h"
+#import "Selection.h"
 @interface KCLSubSelectionTableViewController ()
 
 @end
@@ -66,6 +67,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [[self.tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    SubSelection *a = self.selections[indexPath.row];
+    NSString *s = [defaults objectForKey:a.parentSelection.name];
+    [defaults setObject:[s stringByAppendingString:[NSString stringWithFormat:@"%@\n", a.name]] forKey:a.parentSelection.name];
+    [defaults synchronize];
 }
 
 /*
